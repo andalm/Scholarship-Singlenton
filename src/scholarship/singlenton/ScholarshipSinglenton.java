@@ -5,6 +5,7 @@
  */
 package scholarship.singlenton;
 
+import java.util.Random;
 import scholarship.system.Scholarship;
 import university.system.Student;
 import university.system.University;
@@ -16,7 +17,7 @@ import university.system.University;
 public class ScholarshipSinglenton {
   
   private static University university = new University();
-  private static int maxStudents = 20;
+  private static int maxStudents = 300;
   
   /**
    * @param args the command line arguments
@@ -24,16 +25,33 @@ public class ScholarshipSinglenton {
   public static void main(String[] args) 
   {    
     setStudents();
+    university.getScholarships();
+    for(int i=0; i<maxStudents; i++)
+    {
+      if(university.getStudent(i).getScholarship() != null)
+      {
+        System.out.println(university.getStudent(i).getName() + " has a scholarship");
+      }
+      else
+      {
+        System.out.println(university.getStudent(i).getName() + " has not scholarship");
+      }
+    }
   }
   
   public static void setStudents()
   {
-    int students = (int) (Math.random() * maxStudents);
+    Random  a = new Random();
     Student student;
-    for(int i=0; i<students; i++)
+    for(int i=0; i<maxStudents; i++)
     {
-      student = new Student("Student " + i, (byte)Math.random(), "123", Math.random(), (byte)Math.random(),
-                     (double)Math.random());
+      student = new Student(
+        "Student " + (i+1), 
+        (byte)(a.nextInt(40-18)+1),
+        "123", (a.nextFloat()*5), 
+        (byte)(a.nextInt(3)+1),
+        (a.nextFloat()*(100-10)+10)
+      );
       university.setStudent(student);
     }
   }
