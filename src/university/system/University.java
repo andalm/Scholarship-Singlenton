@@ -25,10 +25,11 @@ public class University {
   }
 
   /**
-   * @return the students
+   * @param index
+   * @return return the index student
    */
-  public ArrayList<Student> getStudents() {
-    return students;
+  public Student getStudent(int index) {
+    return students.get(index);
   }
 
   /**

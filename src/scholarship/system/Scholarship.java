@@ -11,7 +11,7 @@ import university.system.*;
  * @author Adam
  */
 public class Scholarship {
-  private static byte maxScholarships = 5;
+  private static byte maxScholarships = 9;
   private static final double minAverage = 4.5;
   private static final byte maxFailedCourses = 2;
   private static final double minCareerPorcentaje = 60;
@@ -20,7 +20,7 @@ public class Scholarship {
   
   public static Scholarship get(Student student)
   {
-    if(maxScholarships >= 0)
+    if(maxScholarships >= 1)
     {
       if( minAverage <= student.getAverage() && maxFailedCourses >= student.getFailedCourses()
           && minCareerPorcentaje <= student.getCareerPorcentaje() )
