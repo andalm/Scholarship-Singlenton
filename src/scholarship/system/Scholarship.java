@@ -20,15 +20,25 @@ public class Scholarship {
   
   public static Scholarship get(Student student)
   {
+    if(validateStudent(student))
+    {
+      maxScholarships--;
+      return new Scholarship();
+    }  
+    return null;
+  }
+  
+  public static boolean validateStudent(Student student)
+  {
     if(maxScholarships >= 1)
     {
       if( minAverage <= student.getAverage() && maxFailedCourses >= student.getFailedCourses()
           && minCareerPorcentaje <= student.getCareerPorcentaje() )
       {
-        maxScholarships--;
-        return new Scholarship();
+        return true;
       }      
-    }    
-    return null;
+    }
+    
+    return false;
   }
 }
