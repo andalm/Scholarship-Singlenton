@@ -15,7 +15,7 @@ public class Scholarship {
   
   private Scholarship(){};
   
-  public static Scholarship get(Student student)
+  public static Scholarship get()
   {
     if(maxScholarships >= 1)
     {

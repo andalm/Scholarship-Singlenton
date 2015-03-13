@@ -24,7 +24,7 @@ public class University {
     {
       if(!validateStudent(student))
         continue;      
-      student.setScholarship(Scholarship.get(student));
+      student.setScholarship(Scholarship.get());
     }
   }
 
