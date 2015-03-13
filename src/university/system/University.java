@@ -14,13 +14,17 @@ import scholarship.system.Scholarship;
  */
 public class University {
   private ArrayList<Student> students = new ArrayList<>();
+  private static final double minAverage = 4.5;
+  private static final byte maxFailedCourses = 2;
+  private static final double minCareerPorcentaje = 60;
   
   public void getScholarships()
   {
-    int count = students.size();
-    for(int i=0; i<count; i++)
+    for(Student student:students)
     {
-      students.get(i).setScholarship(Scholarship.get(students.get(i)));
+      if(!validateStudent(student))
+        continue;      
+      student.setScholarship(Scholarship.get(student));
     }
   }
 
@@ -37,5 +41,11 @@ public class University {
    */
   public void setStudent(Student student) {
     this.students.add(student);
+  }
+  
+  public boolean validateStudent(Student student)
+  {
+    return minAverage <= student.getAverage() && maxFailedCourses >= student.getFailedCourses()
+            && minCareerPorcentaje <= student.getCareerPorcentaje();
   }
 }

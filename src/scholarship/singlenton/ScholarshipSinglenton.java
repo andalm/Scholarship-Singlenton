@@ -6,7 +6,6 @@
 package scholarship.singlenton;
 
 import java.util.Random;
-import scholarship.system.Scholarship;
 import university.system.Student;
 import university.system.University;
 
