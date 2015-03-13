@@ -6,4 +6,6 @@ nbproject
 .idea
 .node_history
 build
+dist
+nbbuild.xml
 UML Reverse Engineer
